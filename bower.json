@@ -1,6 +1,6 @@
 {
-  "name": "pc-core",
-  "version": "1.0.0",
+  "name": "bower-practice",
+  "version": "0.0.0",
   "authors": [
     "\"\""
   ],
@@ -20,17 +20,11 @@
   "dependencies": {
     "jquery": "2.1.1",
     "bootstrap": "3.3.5",
-    "angular": "1.4.2",
+    "angular": "~1.4.2",
     "fontawesome": "4.2.0",
     "ionicons": "1.5.2",
     "underscore": "1.8.3",
-    "alertify.js": "1.4.1",
-    "moment": "2.10.3"
-  },
-  "resolutions": {
-    "jquery": "2.1.1",
-    "bootstrap": "3.3.5",
-    "angular": "1.4.2",
+    "alertify.js": "0.3.11",
     "moment": "2.10.3"
   }
 }

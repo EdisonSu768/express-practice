@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+if [ $1 ]; then
+  if [ $1 == "production" ]; then
+    export NODE_ENV=production;
+    export PORT=3000;
+    echo 'NODE_ENV is' $NODE_ENV;
+    node ./bin/www;
+  elif [ $1 == "test" ]; then
+    export NODE_ENV=test;
+    export PORT=3200;
+    echo 'NODE_ENV is' $NODE_ENV;
+    node ./bin/www;
+  fi
+else
+  export NODE_ENV=development;
+  export PORT=3210;
+  echo 'NODE_ENV is' $NODE_ENV;
+  node ./bin/www;
+fi
