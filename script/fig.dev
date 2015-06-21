@@ -16,5 +16,6 @@ else
   export NODE_ENV=development;
   export PORT=3210;
   echo 'NODE_ENV is' $NODE_ENV;
+  grunt test:development
   node ./bin/www;
 fi

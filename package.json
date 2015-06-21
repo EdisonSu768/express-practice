@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "connect-assets": "^4.7.1",
     "ccap": "0.6.0",
     "coffee-script": "~1.9.3",
     "express": "~4.12.4",
