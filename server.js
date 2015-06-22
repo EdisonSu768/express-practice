@@ -4,8 +4,11 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// connect-assets
+var connectAssets = require('connect-assets');
+//coffee-script register
+var coffeeScript = require('coffee-script/register');
 
-var routes = require('./config/routes/index.js');
 //var users = require('./routes/users');
 
 var app = express();
@@ -22,8 +25,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-//app.use('/users', users);
+//config app routes;
+var routes = require('./config/routes');
+routes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -39,6 +43,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   console.log('Server is running...');
   console.log('Node env is development');
+  app.use(connectAssets());
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
