@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 // connect-assets
 var connectAssets = require('connect-assets');
 //coffee-script register
-var coffeeScript = require('coffee-script/register');
-
+var coffeeScript = require('coffee-script');
+coffeeScript.register();
 //var users = require('./routes/users');
 
 var app = express();

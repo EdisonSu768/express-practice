@@ -4,6 +4,8 @@ module.exports = (app) ->
     routeMvc('index', 'index', req, res, next)
   app.get '/login', (req, res, next) ->
     routeMvc('index', 'login', req, res, next)
+  app.get '/gethelloworld', (req, res, next) ->
+    routeMvc('index', 'getHelloWorld', req, res, next)
 
 
 

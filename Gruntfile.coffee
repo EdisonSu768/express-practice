@@ -12,6 +12,8 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks 'grunt-express-server' # express server
 
+  grunt.loadNpmTasks 'grunt-mocha-test'     # mocha test
+
   grunt.initConfig
     coffee:
       development:
@@ -36,9 +38,22 @@ module.exports = (grunt) ->
 #        options:
 #          spawn: false
 
+    mochaTest:
+      controllers:
+        options:
+          require: [
+            'coffee-script/register',
+            './test/init.coffee'
+          ]
+        src: ['./test/controllers/*_controllers.test.coffee']
+
   grunt.registerTask 'test:development', [
     'clean:development'
     'coffee:development'
+  ]
+
+  grunt.registerTask 'test:controllers', [
+    'mochaTest:controllers'
   ]
 
 

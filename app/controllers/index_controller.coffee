@@ -3,4 +3,5 @@ module.exports =
     res.render('index', {title: 'Express'})
   login: (req, res, next) ->
     res.render('login/login.jade')
-  a: () ->
+  getHelloWorld: (req, res, next) ->
+    res.status(200).send('Hello world')
