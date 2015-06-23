@@ -43,8 +43,10 @@ module.exports = (grunt) ->
         options:
           require: [
             'coffee-script/register',
-            './test/init.coffee'
+            './test/init.coffee',
           ]
+          reporter: 'mocha-jenkins-reporter'
+
         src: ['./test/controllers/*_controllers.test.coffee']
 
   grunt.registerTask 'test:development', [

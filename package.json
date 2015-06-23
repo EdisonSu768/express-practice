@@ -44,7 +44,7 @@
     "karma-junit-reporter": "*",
     "karma-mocha-reporter": "^1.0.2",
     "mocha": "~2.2.5",
-    "mocha-jenkins-reporter": "~0.1.2",
+    "mocha-jenkins-reporter": "~0.1.9",
     "protractor": "~2.1.0",
     "should": "~7.0.1",
     "sinon": "~1.15.0",
