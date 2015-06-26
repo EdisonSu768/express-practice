@@ -4,17 +4,16 @@
   expressPracticeModule = angular.module('expressPracticeModule', []);
 
   expressPracticeModule.service('loginService', [
-    '$http', '$q', '$log', function($http, $q, $log) {
+    '$http', '$q', function($http, $q) {
       var _login, _loginService;
       _login = function(_account) {
-        var _loginDefer;
-        _loginDefer = $q.defer();
-        return $http.post('/login', _account).then(function(_success) {
-          _loginDefer.resolve(_success.data);
-          return $log('Validate successfully');
+        $http.post('/validateAccount.json', _account).then(function(_success) {
+          console.log('validate successfully');
+          return window.location.href = '/';
         }, function(_err) {
-          return _loginDefer.reject('Error');
+          return _loginDefer.reject('Error:', _err);
         });
+        return _loginDefer.promise;
       };
       return _loginService = {
         login: _login
@@ -24,14 +23,18 @@
 
   expressPracticeModule.controller('loginController', [
     '$scope', 'loginService', function($scope, loginService) {
-      console.log('aaaaaaaaaaaaaaaaaaaaaaaaaa', $scope.form);
-      $scope.loginInfo = {
-        email: '',
-        password: ''
-      };
-      return $scope.login = function(_form) {
-        console.log('$scope.loginInfo', _form, $scope.form);
-        return loginService.login($scope.loginInfo);
+      return $scope.login = function() {
+        var _account;
+        _account = {
+          email: $scope.form.email.$viewValue,
+          password: $scope.form.password.$viewValue
+        };
+        console.log(_account);
+        return loginService.login(_account).then(function() {
+          return console.log('Success');
+        }, function(_err) {
+          return console.log('Error', _err);
+        });
       };
     }
   ]);
