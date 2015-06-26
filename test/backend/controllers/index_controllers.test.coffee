@@ -1,5 +1,5 @@
 request = require 'supertest'
-app = require '../../server.js'
+app = getServer;
 should = require 'should'
 
 
