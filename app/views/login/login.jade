@@ -3,15 +3,15 @@
 
 extends ../layout
 block content
-   .container
-      ng-form.form-signin
-         h2.form-signin-heading Please sign in
-         label.sr-only(for='inputEmail') Email address
-         input#inputEmail.form-control(type='email', placeholder='Email address', required='', autofocus='')
-         br
-         input#inputPassword.form-control(type='password', placeholder='Password', required='')
-         .checkbox
-            label
-               input(type='checkbox', value='remember-me')
-               |  Remember me
-         button.btn.btn-lg.btn-primary.btn-block(type='submit') Sign in
+  .container(ng-controller="loginController")
+    ng-form.form-signin(name='form')
+       h2.form-signin-heading Please sign in
+       label.sr-only(for='inputEmail') Email address
+       input#inputEmail.form-control(type='email',name='login.email', placeholder='Email address', required='', autofocus='')
+       br
+       input#inputPassword.form-control(type='password',name='login.password', placeholder='Password', required='')
+       .checkbox
+          label
+             input(type='checkbox', value='remember-me')
+             |  Remember me
+       button.btn.btn-lg.btn-primary.btn-block(type='button', ng-click="login()") Sign in
