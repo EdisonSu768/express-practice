@@ -1,13 +1,10 @@
-routeMvc = require './routeMvc.coffee'
+index = require '../../app/controllers/index_controller.coffee'
 module.exports = (app) ->
-  app.get '/', (req, res, next) ->
-    routeMvc('index', 'index', req, res, next)
-  app.get '/login', (req, res, next) ->
-    routeMvc('index', 'login', req, res, next)
-  app.post '/validateaccount.:format', (req, res, next) ->
-    routeMvc('index', 'validateaccount', req, res, next)
-  app.get '/gethelloworld', (req, res, next) ->
-    routeMvc('index', 'getHelloWorld', req, res, next)
+  app.get '/', index.index
+  app.get '/login', index.login
+  app.post '/validateaccount.:format', index.validateaccount
+  app.get '/gethelloworld', index.getHelloWorld
+
 
 
 
