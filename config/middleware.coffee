@@ -1,3 +1,4 @@
+express = require('express');
 path = require('path');
 favicon = require('serve-favicon');
 logger = require('morgan');
@@ -11,5 +12,5 @@ module.exports = (app) ->
   app.use(cookieParser());
 
 #  static assets
-  app.use(express.static(path.join(__dirname, '../../public')));
-  app.use(express.static(path.join(__dirname, '../../bower_components')));
+  app.use(express.static(path.join(__dirname, '../public')));
+  app.use(express.static(path.join(__dirname, '../bower_components')));

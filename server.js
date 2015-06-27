@@ -15,7 +15,7 @@ app.set('view engine', 'jade');
 
 
 //middleware
-var middleware = require('./config/middleware');
+var middleware = require('./config/middleware.coffee');
 middleware(app);
 
 
